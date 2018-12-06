@@ -16,6 +16,7 @@ class ConverterViewController: UIViewController {
     
     var inputNumber : String = ""
     var inputSuffix : String = ""
+    var outputSuffix : String = ""
     
     var converters = [Converter(label: "fahrenheit to celcius", inputUnit: "°F", outputUnit: "°C"),
                       Converter(label: "celcius to fahrenheit", inputUnit: "°C", outputUnit: "°F"),
@@ -30,6 +31,7 @@ class ConverterViewController: UIViewController {
         inputDisplay.text = converters[0].inputUnit
         outputDisplay.text = converters[0].outputUnit
         inputSuffix = inputDisplay.text!
+        outputSuffix = outputDisplay.text!
     }
     
     @IBAction func converterButtonTapped(_ sender: Any) {
@@ -40,6 +42,7 @@ class ConverterViewController: UIViewController {
                 self.inputDisplay.text = converter.inputUnit
                 self.outputDisplay.text = converter.outputUnit
                 self.inputSuffix = converter.inputUnit
+                self.outputSuffix = converter.outputUnit
             }))
         }
         actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.cancel, handler: nil))
@@ -47,48 +50,49 @@ class ConverterViewController: UIViewController {
         inputNumber = ""
     }
    
-//    var posOrNegNum : Bool = true
-//    func changeNumSign() {
-//        if posOrNegNum {
-//            posOrNegNum = false
-//            inputNumber.insert("-", at: inputNumber.startIndex)
-//            printNumber()
-//        }
-//        if !posOrNegNum {
-//            posOrNegNum = true
-//            inputNumber.remove(at: inputNumber.startIndex)
-//            printNumber()
-//        }
-//    }
+    var positiveNumber = true
+    func changeNumSign() {
+        if positiveNumber {
+            positiveNumber = false
+            inputNumber.insert("-", at: inputNumber.startIndex)
+            printNumber()
+        } else {
+            positiveNumber = true
+            inputNumber.remove(at: inputNumber.startIndex)
+            printNumber()
+        }
+    }
     
     func printNumber(){
-        inputDisplay.text = inputNumber
-        print(inputSuffix)
+        inputDisplay.text = inputNumber + " \(inputSuffix)"
     }
     
     func convertValues() {
         if inputNumber == "" {
-            outputDisplay.text = ""
+            inputDisplay.text = inputSuffix
+            outputDisplay.text = outputSuffix
             return
         }
         var outputNumber = 0.0
         switch inputSuffix {
         case "km":
             outputNumber = Double(inputNumber)! / 1.609
-            outputDisplay.text = String(format: "%.1f", outputNumber)
+            outputDisplay.text = String(format: "%.1f", outputNumber) + " mi"
         case "mi":
             outputNumber = Double(inputNumber)! * 1.609
-            outputDisplay.text = String(format: "%.1f", outputNumber)
+            outputDisplay.text = String(format: "%.1f", outputNumber) + " ki"
         case "°C":
             outputNumber = Double(inputNumber)! * 1.8 + 32.0
-            outputDisplay.text = String(format: "%.1f", outputNumber)
+            outputDisplay.text = String(format: "%.1f", outputNumber) + " °F"
         case "°F":
             outputNumber = (Double(inputNumber)! - 32.0) * (5/9)
-            outputDisplay.text = String(format: "%.1f", outputNumber)
+            outputDisplay.text = String(format: "%.1f", outputNumber) + " °C"
         default:
             break
         }
     }
+    
+    var hasDecimal = false
     
     //sender.tag of 10 = clear button, 11 = +- button, and 12 = decimal button
     @IBAction func buttonsTapped(_ sender: UIButton) {
@@ -99,18 +103,19 @@ class ConverterViewController: UIViewController {
         if sender.tag == 10 {
             inputNumber = ""
             printNumber()
+            hasDecimal = false
         }
-        if sender.tag == 12 {
+        if sender.tag == 12 && !hasDecimal {
             inputNumber += "."
+            hasDecimal = true
             printNumber()
         }
-//        if sender.tag == 11 && posOrNegNum {
-//            changeNumSign()
-//        }
-//        if sender.tag == 11 && !posOrNegNum  {
-//            changeNumSign()
-//        }
-//        print(posOrNegNum)
+        if sender.tag == 12 && hasDecimal {
+            return
+        }
+        if sender.tag == 11 {
+            changeNumSign()
+        }
         convertValues()
     }
     

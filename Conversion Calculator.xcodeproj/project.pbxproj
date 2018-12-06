@@ -7,17 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB08F52F21B5BA6800C91C49 /* FunctionalityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB08F52E21B5BA6800C91C49 /* FunctionalityViewController.swift */; };
 		EB1D21192183A0990016A0CB /* ConverterStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D21182183A0980016A0CB /* ConverterStruct.swift */; };
 		EB43A75A217E4D4700B9B5A0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB43A759217E4D4700B9B5A0 /* AppDelegate.swift */; };
 		EB43A75F217E4D4700B9B5A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB43A75D217E4D4700B9B5A0 /* Main.storyboard */; };
 		EB43A761217E4D4800B9B5A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB43A760217E4D4800B9B5A0 /* Assets.xcassets */; };
 		EB43A764217E4D4800B9B5A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB43A762217E4D4800B9B5A0 /* LaunchScreen.storyboard */; };
 		EB43A76C217E4D8400B9B5A0 /* ConverterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB43A76B217E4D8400B9B5A0 /* ConverterViewController.swift */; };
+		EBCD4E8821B9B97200BA9B39 /* Calculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCD4E8721B9B97200BA9B39 /* Calculations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		EB08F52E21B5BA6800C91C49 /* FunctionalityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FunctionalityViewController.swift; sourceTree = "<group>"; };
 		EB1D21182183A0980016A0CB /* ConverterStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterStruct.swift; sourceTree = "<group>"; };
 		EB43A756217E4D4700B9B5A0 /* Conversion Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Conversion Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB43A759217E4D4700B9B5A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +25,7 @@
 		EB43A763217E4D4800B9B5A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB43A765217E4D4800B9B5A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EB43A76B217E4D8400B9B5A0 /* ConverterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewController.swift; sourceTree = "<group>"; };
+		EBCD4E8721B9B97200BA9B39 /* Calculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calculations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,7 +42,8 @@
 		EB08F52D21B5AF9100C91C49 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EB08F52E21B5BA6800C91C49 /* FunctionalityViewController.swift */,
+				EB1D21182183A0980016A0CB /* ConverterStruct.swift */,
+				EBCD4E8721B9B97200BA9B39 /* Calculations.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -70,10 +71,9 @@
 				EB43A75D217E4D4700B9B5A0 /* Main.storyboard */,
 				EB43A760217E4D4800B9B5A0 /* Assets.xcassets */,
 				EB43A762217E4D4800B9B5A0 /* LaunchScreen.storyboard */,
+				EB43A76B217E4D8400B9B5A0 /* ConverterViewController.swift */,
 				EB08F52D21B5AF9100C91C49 /* Model */,
 				EB43A765217E4D4800B9B5A0 /* Info.plist */,
-				EB43A76B217E4D8400B9B5A0 /* ConverterViewController.swift */,
-				EB1D21182183A0980016A0CB /* ConverterStruct.swift */,
 			);
 			path = "Conversion Calculator";
 			sourceTree = "<group>";
@@ -149,10 +149,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB08F52F21B5BA6800C91C49 /* FunctionalityViewController.swift in Sources */,
 				EB43A75A217E4D4700B9B5A0 /* AppDelegate.swift in Sources */,
 				EB43A76C217E4D8400B9B5A0 /* ConverterViewController.swift in Sources */,
 				EB1D21192183A0990016A0CB /* ConverterStruct.swift in Sources */,
+				EBCD4E8821B9B97200BA9B39 /* Calculations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
